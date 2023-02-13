@@ -8,6 +8,7 @@
 import math
 
 memory = 0
+
 def calculation():
     # Ask user for number input
     number_one = input('Input your first number: ')

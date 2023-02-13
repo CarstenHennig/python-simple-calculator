@@ -1,0 +1,8 @@
+# Include all Python files
+include __init__.py
+include setup.py
+include calculator.py
+
+# Include all text files
+include README.md
+include MANIFEST.in

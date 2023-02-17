@@ -7,6 +7,7 @@
 '''
 import math
 
+
 class Calculator:
     def __init__(self):
         pass
@@ -27,16 +28,19 @@ class Calculator:
         result = number_one / number_two
         return result
 
-    def root(self, number_one, number_two):
-        result = math.pow(number_one, 1/number_two)
+       def root(self, number_one, number_two):
+        result = math.pow(number_one, 1 / number_two)
         return result
 
+
 calc = Calculator()
+
 
 def calculation():
     number_one = int(input('Input first number: '))
     number_two = int(input('Input second number: '))
-    operator = input('Choose operator: 1 - Add | 2 - Substract | 3 - Multiply | 4 - Divide | 5 - Root 1st num by 2nc num ')
+    operator = input(
+        'Choose operator: 1 - Add | 2 - Substract | 3 - Multiply | 4 - Divide | 5 - Root 1st num by 2nc num ')
     if operator == '1':
         print(f'{number_one} + {number_two} is {calc.add(number_one, number_two)}')
     elif operator == '2':
@@ -48,10 +52,8 @@ def calculation():
     elif operator == '5':
         print(f'Root {number_two} of {number_one} is {calc.root(number_one, number_two)}')
 
+
 calculation()
-
-
-
 
 """
 def calculation():

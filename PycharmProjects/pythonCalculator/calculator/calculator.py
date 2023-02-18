@@ -1,16 +1,103 @@
-'''
+"""
     Python application for a simple calculator,
     asking user whether to start,
     then checking input isnumeric()
     then checking second input = 0 AND operator 0 /
     and asking user to restart or to leave
-'''
-import math
+"""
 
+
+'''
+THIRD TRY - Feb 19, 2023
+'''
 
 class Calculator:
     def __init__(self):
-        pass
+        self.memory = 0
+
+    def add(self, x, y):
+        return x + y
+
+    def subtract(self, x, y):
+        return x - y
+
+    def multiply(self, x, y):
+        return x * y
+
+    def divide(self, x, y):
+        if y == 0:
+            raise ValueError("Cannot divide by zero")
+        return x / y
+
+    def nth_root(self, x, n):
+        if x < 0 and n % 2 == 0:
+            raise ValueError("Cannot take even root of negative number")
+        return x ** (1/n)
+
+    def memory_store(self, x):
+        self.memory = x
+
+    def memory_recall(self):
+        return self.memory
+
+
+'''
+You can then create an instance of the Calculator class and use its methods to perform calculations:
+'''
+
+calc = Calculator()
+
+# Input int for calculation
+number_one = int(input('First number: '))
+number_two = int(input('Second number: '))
+
+# First instance: Adding
+result = calc.add(number_one, number_two)
+print(f' {number_one} + {number_two} = {result}')
+
+# Second instance: Subtracting
+result = calc.subtract(number_one, number_two)
+print(f' {number_one} - {number_two} = {result}')
+
+# Third instance: Multiply
+result = calc.multiply(number_one, number_two)
+print(f' {number_one} * {number_two} = {result}')
+
+# Fourth instance: Divide
+result = calc.divide(number_one, number_two)
+print(f' {number_one} / {number_two} = {result}')
+
+# Fifth instance: n-th root
+result = calc.nth_root(number_one, number_two)
+print(f' N-th root of {number_one} and {number_two} = {result}')
+
+# Sixth instance: memory
+calc.memory_store(number_one)
+calc.memory_store(number_two)
+result = calc.memory_recall()
+print(f'Memory: {result}')
+
+
+'''
+Note that the divide method raises a ValueError if the second argument is zero, to avoid a division by zero error. 
+Also, the nth_root method checks for cases where the input is negative and the root is even, which would result in a complex number. 
+Finally, the memory_store and memory_recall methods are used to store a value in memory and retrieve it later.
+'''
+
+'''
+SECOND TRY - Feb 15, 2023
+#########################
+
+import math
+
+memory = 0  # initialize memory to 0
+result = 0
+number_one: float = 0
+number_two: float = 0
+
+class Calculator:
+    def __init__(self, memory: float = 0.0) -> None:
+        self._memory = memory
 
     def add(self, number_one, number_two):
         result = number_one + number_two
@@ -28,9 +115,20 @@ class Calculator:
         result = number_one / number_two
         return result
 
-       def root(self, number_one, number_two):
+    def root(self, number_one, number_two):
         result = math.pow(number_one, 1 / number_two)
         return result
+
+    def add_to_memory(result):
+        global memory  # use the global variable 'memory'
+        memory += result
+
+    def subtract_from_memory(result):
+        global memory  # use the global variable 'memory'
+        memory -= result
+
+    def recall_memory():
+        return memory
 
 
 calc = Calculator()
@@ -42,8 +140,10 @@ def calculation():
     operator = input(
         'Choose operator: 1 - Add | 2 - Substract | 3 - Multiply | 4 - Divide | 5 - Root 1st num by 2nc num ')
     if operator == '1':
-        print(f'{number_one} + {number_two} is {calc.add(number_one, number_two)}')
+        result = calc.add(number_one, number_two)
+        print(f'{number_one} + {number_two} is {result}')
     elif operator == '2':
+        result = calc.substract(number_one, number_two)
         print(f'{number_one} - {number_two} is {calc.substract(number_one, number_two)}')
     elif operator == '3':
         print(f'{number_one} * {number_two} is {calc.multiply(number_one, number_two)}')
@@ -52,10 +152,26 @@ def calculation():
     elif operator == '5':
         print(f'Root {number_two} of {number_one} is {calc.root(number_one, number_two)}')
 
+    print(result)
+    activate_memory = int(input('1 - Add result to memory | 2 - Substract result from memrory | 3 - Recall memory '))
+    if activate_memory == 1:
+        Calculator.add_to_memory(result)
+        print(memory)
+    elif activate_memory == 2:
+        Calculator.subtract_from_memory(result)
+        print(memory)
+    elif activate_memory == 3:
+        Calculator.recall_memory(result)
+        print(memory)
+    else:
+        print('Wrong input')
 
 calculation()
+'''
 
 """
+FIRST TRY - Feb 13, 2023
+########################
 def calculation():
     # Ask user for number input
     number_one = input('Input your first number: ')

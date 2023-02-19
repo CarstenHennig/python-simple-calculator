@@ -6,10 +6,10 @@
     and asking user to restart or to leave
 """
 
-
 '''
 THIRD TRY - Feb 19, 2023
 '''
+
 
 class Calculator:
     def __init__(self):
@@ -32,7 +32,7 @@ class Calculator:
     def nth_root(self, x, n):
         if x < 0 and n % 2 == 0:
             raise ValueError("Cannot take even root of negative number")
-        return x ** (1/n)
+        return x ** (1 / n)
 
     def memory_store(self, x):
         self.memory = x
@@ -77,6 +77,12 @@ calc.memory_store(number_two)
 result = calc.memory_recall()
 print(f'Memory: {result}')
 
+''' Unit testing with assert '''
+assert (calc.add(1, 2) == 3)
+assert (calc.subtract(20, 3) == 17)
+assert (calc.multiply(4, 5) == 20)
+assert (calc.divide(30, 10) == 3)
+assert (calc.nth_root(20, 17) == 1.1926998818042585)
 
 '''
 Note that the divide method raises a ValueError if the second argument is zero, to avoid a division by zero error. 

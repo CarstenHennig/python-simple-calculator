@@ -1,7 +1,9 @@
-import unittest
 from calculator import Calculator
 
-class TestCalculator(unittest.TestCase):
+
+assert =
+
+class TestCalculator(pytest.TestCase):
     def setUp(self):
         self.calc = Calculator()
 

@@ -5,7 +5,7 @@
 A simple Python package with initializing *__init__.py* file importing after delay of 3 seconds the *calculator.py* file.
 
 Calculator function offers simple computing operations:
-- add | substract | multiply | divide
+- add | subtract | multiply | divide
 - square root
 - memory function
 
